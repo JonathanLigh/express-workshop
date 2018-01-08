@@ -1,11 +1,8 @@
 var chalk = require('chalk');
-var server = require('http').createServer();
 var express = require('express');
 var jokes = require('./jokeHandler');
 var app = express();
 var utils = require('./utils');
-
-server.on('request', app);
 
 app.get('/knockknock', function(req, res){
   res.status(200).send(jokes.createKnockKnock());
@@ -41,6 +38,6 @@ app.get('/oneliner/xTimes/:num', function(req, res){
 
 var PORT = 8000;
 
-server.listen(PORT, function() {
-        console.log(chalk.blue('server started on port', chalk.magenta(PORT)));
-    });
+app.listen(PORT, function() {
+  console.log(chalk.blue('server started on port', chalk.magenta(PORT)));
+});
