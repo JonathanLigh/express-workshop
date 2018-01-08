@@ -48,10 +48,10 @@ Note: It's always a good idea to log something, so you can see whether or not yo
 4. A route for accessing a joke in quotation marks. e.g. `GET /quotes/jokes` will return either joke type but in quotes
 5. A route for accessing x jokes. e.g. `GET /jokes/5` will return 5 jokes.
 
-Rather than trying to fit all of these routes on one file, try looking at `express`'s `Router` object in its documentation.
+Feel free to deviate from those example route names, we want you to design your API however you wish before we move onto more advanced design techniques tomorrow.
 
 Note: For routes 3,4,5 we will discuss a much better strategy tomorrow for handling inputs, cause those are NOT industry standard methods by any means.
 
 You can test the success of your server by accessing `localhost:<PORTNUMBER>/<your api route>` in your browser's URL while the server is running.
 
-If you finish and are confident with your implementation, ask one of us to come over and check it over. We'll also suggest more challenging considerations if you feel up for the task.
+If you finish and are confident with your implementation, ask one of us to come over and check it over. We'll suggest more challenges if you feel up for the task.
