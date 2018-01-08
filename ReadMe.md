@@ -15,9 +15,9 @@ If you look at your `package.json` file, you'll notice it looks very different f
 
 ### Before you begin, I recommend you read the express documentation at: http://expressjs.com/en/4x/api.html and this node js http resource: https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/.
 
-### First, you'll want to initialize an `express` application.
+### First, you'll want to initialize an `express` application inside `main.js` (if you are starting from previous code, feel free to gut all your flag logic, but keep the `requires`.
 
-Hint: 
+Hint:
 ~~~
 var express = require('express');
 var app = express();
@@ -25,12 +25,12 @@ var app = express();
 
 ### Next, you'll need to set up which port number your server is listening on. You can do this by invoking the `listen` function on app, which takes a port number and an optional callback function.
 
-Hint: 
+Hint:
 ~~~
 app.listen(8000, function () {
   console.log('server listening on port: ' + 8000)
 })
-~~~ 
+~~~
 
 Note: It's always a good idea to log something, so you can see whether or not your sever is running successfully.
 
