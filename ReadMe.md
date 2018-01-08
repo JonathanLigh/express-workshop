@@ -5,37 +5,53 @@ The goal of this workshop is to introduce express.js server initialization and r
 
 ## Step 1: Setup
 
-### If you haven't yet, fork this repo and clone it onto your own computer.
+### If you finished the previous workshop, start with that codebase, or fork this repo and clone it onto your own computer.
 
 ### Run `npm install` in your project directory.
 
 ## Step 2: Initializing the Server
 
-If you look at your `package.json` file, you'll notice it looks very different from the previous workshop. One diffence is `"start:" "node main"` under "scripts". This addition allows you to run your main.js file (which will eventually initialize and run the server) by running the command `npm start`.
+If you look at your `package.json` file, you'll notice it looks very different from the previous workshop. One diffence is `"start:" "node main"` under `"scripts"`. This addition allows you to run your main.js file (which will eventually initialize and run the server) by running the command `npm start`.
 
 ### Before you begin, I recommend you read the express documentation at: http://expressjs.com/en/4x/api.html and this node js http resource: https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/.
 
-### First, you'll want to set up the server object to listen for incoming requests and send them to your app object.
+### First, you'll want to initialize an `express` application.
 
-Hint: `server.on()` takes a string `'request'` of what it's listening for and a callback function of what it should do in the case of a request to the server process running on your computer.
+Hint: 
+~~~
+var express = require('express');
+var app = express();
+~~~
 
-### Next, you'll need to set up which port number your server is listening on. You can do this by invoking the listen() funciton on server, which takes a port number and an optional callback function.
+### Next, you'll need to set up which port number your server is listening on. You can do this by invoking the `listen` function on app, which takes a port number and an optional callback function.
 
-Hint: `server.listen(8000, function () {console.log('server listening on port: ' + 8000)})` it's always a good idea to log this so you can see whether or not your sever is running.
+Hint: 
+~~~
+app.listen(8000, function () {
+  console.log('server listening on port: ' + 8000)
+})
+~~~ 
+
+Note: It's always a good idea to log something, so you can see whether or not your sever is running successfully.
 
 ## Step 3: Building the Routes
 
 ### Before getting started with building the application routes, I recommend you read express routing docs around the header 'Route paths': http://expressjs.com/en/guide/routing.html.
 
-### Now that your server is running you can begin adding api routes for specific content.
+### Now that your server is running you can begin adding api routes. For now let's only focus on GET routes for delivering specific content back.
 
 #### For each of the joke types you will want the following:
 
-1. A general route for accessing a joke.
-2. A route for accessing a capitalized joke.
-3. A route for accessing a joke in quotation marks.
-4. A route for accessing x jokes.
+1. A general route for accessing a random joke. e.g. `GET /jokes` gives either a knockknock or one liner joke back.
+2. A nested route for accessing a particular type of joke. e.g. `GET /jokes/knockknock` gives a knockknock joke back.
+3. A route for accessing a capitalized joke. e.g. `GET /capitalized/jokes` will return either joke type but capitalized
+4. A route for accessing a joke in quotation marks. e.g. `GET /quotes/jokes` will return either joke type but in quotes
+5. A route for accessing x jokes. e.g. `GET /jokes/5` will return 5 jokes.
+
+Rather than trying to fit all of these routes on one file, try looking at `express`'s `Router` object in its documentation.
+
+Note: For routes 3,4,5 we will discuss a much better strategy tomorrow for handling inputs, cause those are NOT industry standard methods by any means.
 
 You can test the success of your server by accessing `localhost:<PORTNUMBER>/<your api route>` in your browser's URL while the server is running.
 
-If you finish and are confident with your implementation, ask one of us to come over and check it over. We'll also suggest more callenging considerations if you feel up for the task.
+If you finish and are confident with your implementation, ask one of us to come over and check it over. We'll also suggest more challenging considerations if you feel up for the task.
