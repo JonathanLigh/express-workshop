@@ -1,6 +1,4 @@
 
-
-
 module.exports = {
   inCaps: function (string) {
     return string.toUpperCase();
